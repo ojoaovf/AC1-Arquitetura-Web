@@ -29,3 +29,4 @@ A estrutura do projeto foi reorganizada para refletir a nova arquitetura desacop
 - IntelliJ IDEA (ou outra IDE de sua preferência)
 
 ## Prints Postman
+![Postman Aula 04](imgs/postman_aula04.png)
