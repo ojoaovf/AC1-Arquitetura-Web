@@ -18,3 +18,4 @@ Este microserviço é parte de uma aplicação maior que visa gerenciar todos os
 - IntelliJ IDEA (ou outra IDE de sua preferência)
 
 ## Prints Postman
+![Postman Aula 03](imgs/postman_aula03.png)
