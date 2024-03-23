@@ -1,0 +1,7 @@
+Controller: serve para fazer a gestão/intepretação do projeto
+
+Model: como está sendo feito (classes Java por exemplo)
+
+Repository: onde ficam armazenados os dados para serem implementados no código
+
+Service: Faz a comunicação entre o Repository e o Modelo
