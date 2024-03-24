@@ -12,7 +12,7 @@ Este projeto é uma continuação do trabalho da semana anterior, onde o foco ag
 - Utilização de inversão de controle e injeção de dependências
 - Refatoração do código para separação de responsabilidades entre camadas (Repositório, Serviço, Modelo)
 - Criação de novas implementações baseadas em interfaces
-- Integração das alterações à branch `aula4`
+- Integração das alterações à branch `aula04`
 
 ## Estrutura do Projeto
 
