@@ -47,7 +47,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 }
         );
     }
-
+    // Capturando valores pelo ID --------------------------------------------------------------------------------------
     @Override
     public Task findById(Long id) {
         String query = "SELECT * FROM dados_pessoais WHERE id = ?";
@@ -88,7 +88,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 )
         );
     }
-    //  Capturando valores pela idade ----------------------------------------------------------------------------------
+    //  Capturando valores pela Idade ----------------------------------------------------------------------------------
     public Task findByIdade(String idade) {
         String query = "SELECT * FROM dados_pessoais WHERE idade = ?";
 
@@ -103,7 +103,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 )
         );
     }
-    //  Capturando valores pelo sexo -----------------------------------------------------------------------------------
+    //  Capturando valores pelo Sexo -----------------------------------------------------------------------------------
     public Task findBySexo(String sexo) {
         String query = "SELECT * FROM dados_pessoais WHERE sexo = ?";
 
@@ -118,7 +118,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 )
         );
     }
-    //  Capturando valores pelo email ----------------------------------------------------------------------------------
+    //  Capturando valores pelo Email ----------------------------------------------------------------------------------
     public Task findByEmail(String email) {
         String query = "SELECT * FROM dados_pessoais WHERE email = ?";
 
@@ -133,7 +133,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 )
         );
     }
-    //  Capturando valores pela nacionalidade --------------------------------------------------------------------------
+    //  Capturando valores pela Nacionalidade --------------------------------------------------------------------------
     public Task findByNacionalidade(String nacionalidade) {
         String query = "SELECT * FROM dados_pessoais WHERE nacionalidade = ?";
 
@@ -148,8 +148,13 @@ public class TaskRepositoryImpl implements TaskRepository {
                 )
         );
     }
-    // ------------------------------------------------------------------------------------
-
+    // Deletando item com base no ID -----------------------------------------------------------------------------------
+    @Override
+    public void deleteById(Long id) {
+        String deleteQuery = "DELETE FROM dados_pessoais WHERE id = ?";
+        jdbcTemplate.update(deleteQuery, id);
+    }
+    // Inserindo e Atualizando dados  ----------------------------------------------------------------------------------
     @Override
     public Task save(Task task) {
         if (task.getId() != null) {
