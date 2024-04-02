@@ -17,28 +17,28 @@ Este microserviço é parte de uma aplicação maior que visa gerenciar todos os
 - Banco de dados PostgreSQL
 - IntelliJ IDEA (ou outra IDE de sua preferência)
 
-# Prints Postman
-## GET inicial
+## Prints Postman
+### GET inicial
 Capturando todos os dados do banco
 
 ![Postman Aula 03](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/get_inicial.png)
 
-## POST
+### POST
 Adicionando mais uma aluna ao banco
 
 ![Postman Aula 03](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/post.png)
 
-## PUT
-Editando e-mail e idade da aluna de id = 3
+### PUT
+Atualizando e-mail e idade da aluna de id = 3
 
 ![Postman Aula 03](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/put.png)
 
-## DELETE
+### DELETE
 Deletando a aluna de id = 2
 
 ![Postman Aula 03](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/delete.png)
 
-## GET final
+### GET final
 Capturando todos os dados do banco após as alterações
 
 ![Postman Aula 03](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/get_final.png)
