@@ -27,6 +27,3 @@ A estrutura do projeto foi reorganizada para refletir a nova arquitetura desacop
 - Java 8 ou superior
 - Banco de dados PostgreSQL
 - IntelliJ IDEA (ou outra IDE de sua preferência)
-
-## Prints Postman
-![Postman Aula 04](imgs/postman_aula04.png)
