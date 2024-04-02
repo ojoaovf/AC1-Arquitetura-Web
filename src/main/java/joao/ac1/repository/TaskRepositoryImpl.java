@@ -154,20 +154,26 @@ public class TaskRepositoryImpl implements TaskRepository {
         String deleteQuery = "DELETE FROM dados_pessoais WHERE id = ?";
         jdbcTemplate.update(deleteQuery, id);
     }
+
     // Inserindo e Atualizando dados  ----------------------------------------------------------------------------------
+
     @Override
     public Task save(Task task) {
         if (task.getId() != null) {
             String insertQuery = "INSERT INTO dados_pessoais (id, nome, idade, sexo, email, nacionalidade) VALUES (?, ?, ?, ?, ?, ?)";
-            /*
-            utilizada para executar operações de atualização no banco de dados usando o Spring JDBC. Essa função é
-            comumente usada para operações que modificam os dados no banco, como inserções, atualizações ou exclusões.
-             */
-            jdbcTemplate.update(insertQuery, task.getId(), task.getNome(), task.getIdade(),  task.getSexo(),  task.getEmail(),  task.getNacionalidade());
-        } else {
-            String updateQuery = "UPDATE dados_pessoais SET nome = ?, idade = ?,sexo = ?,email = ?,nacionalidade = ? WHERE id = ?";
-            jdbcTemplate.update(updateQuery, task.getId(), task.getNome(), task.getIdade(),  task.getSexo(),  task.getEmail(),  task.getNacionalidade());
+            jdbcTemplate.update(insertQuery, task.getId(), task.getNome(), task.getIdade(), task.getSexo(), task.getEmail(), task.getNacionalidade());
         }
         return task;
     }
+
+    @Override
+    public Task update(Task task) {
+        {
+            String updateQuery = "UPDATE dados_pessoais SET nome = ?, idade = ?,sexo = ?,email = ?,nacionalidade = ? WHERE id = ?";
+            jdbcTemplate.update(updateQuery, task.getNome(), task.getIdade(), task.getSexo(), task.getEmail(), task.getNacionalidade(), task.getId());
+        }
+        return task; // Retornando a task após inserção ou atualização
+    }
+
+
 }

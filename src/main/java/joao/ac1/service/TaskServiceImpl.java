@@ -37,4 +37,15 @@ public class TaskServiceImpl implements TaskService {
     public Task createTask(Task task) {
         return taskRepository.save(task);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        taskRepository.deleteById(id);
+    }
+
+    // Adicionar método para atualizar a tarefa
+    @Override
+    public Task update(Task task) {
+        return taskRepository.update(task);
+    }
 }
