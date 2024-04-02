@@ -1,7 +1,6 @@
 package joao.ac1.repository;
 
-import joao.ac1.model.Task;
-
+import joao.ac1.model.Aluno;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
@@ -12,7 +11,7 @@ Ela informa ao Spring que a classe anotada como @Repository é responsável por 
 banco de dados, fornecendo operações CRUD (create, read, update, delete) para uma entidade específica.
  */
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class AlunoRepositoryImpl implements AlunoRepository {
 
     /*
     O JdbcTemplate é uma classe oferecida pelo Spring Framework para simplificar o uso do JDBC (Java Database Connectivity)
@@ -24,19 +23,19 @@ public class TaskRepositoryImpl implements TaskRepository {
     /*
     A injeção acontecendo no contrutor
      */
-    public TaskRepositoryImpl(JdbcTemplate jdbcTemplate) {
+    public AlunoRepositoryImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public List<Task> findAll() {
+    public List<Aluno> findAll() {
         /*
         Este método executa uma consulta SQL no banco de dados usando a instrução SELECT * FROM task. Ele espera uma função
         lambda (ou expressão lambda) como segundo argumento para mapear os resultados.
          */
         return jdbcTemplate.query("SELECT * FROM dados_pessoais", (resultSet, rowNum) -> {
                     System.out.println("Numero da linha: " + rowNum);
-                    return new Task(
+                    return new Aluno(
                             resultSet.getLong("id"),
                             resultSet.getString("nome"),
                             resultSet.getString("idade"),
@@ -49,7 +48,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
     // Capturando valores pelo ID --------------------------------------------------------------------------------------
     @Override
-    public Task findById(Long id) {
+    public Aluno findById(Long id) {
         String query = "SELECT * FROM dados_pessoais WHERE id = ?";
         /*
         Este método é usado para executar uma consulta SQL que retorna um único resultado. Ele espera a consulta SQL,
@@ -59,7 +58,7 @@ public class TaskRepositoryImpl implements TaskRepository {
         A quantidade e ordem de atributos no array de parametros deve ser a mesma na consulta SQL.
          */
         return jdbcTemplate.queryForObject(query, new Object[]{id}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         /*
                         Para se recuperar os valores das colunas é preciso saber o tipo e o nome, pois os métodos são
                         especificos
@@ -74,11 +73,11 @@ public class TaskRepositoryImpl implements TaskRepository {
         );
     }
     // Capturando valores pelo Nome ------------------------------------------------------------------------------------
-    public Task findByNome(String nome) {
+    public Aluno findByNome(String nome) {
         String query = "SELECT * FROM dados_pessoais WHERE nome = ?";
 
         return jdbcTemplate.queryForObject(query, new Object[]{nome}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         resultSet.getLong("id"),
                         resultSet.getString("nome"),
                         resultSet.getString("idade"),
@@ -89,11 +88,11 @@ public class TaskRepositoryImpl implements TaskRepository {
         );
     }
     //  Capturando valores pela Idade ----------------------------------------------------------------------------------
-    public Task findByIdade(String idade) {
+    public Aluno findByIdade(String idade) {
         String query = "SELECT * FROM dados_pessoais WHERE idade = ?";
 
         return jdbcTemplate.queryForObject(query, new Object[]{idade}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         resultSet.getLong("id"),
                         resultSet.getString("nome"),
                         resultSet.getString("idade"),
@@ -104,11 +103,11 @@ public class TaskRepositoryImpl implements TaskRepository {
         );
     }
     //  Capturando valores pelo Sexo -----------------------------------------------------------------------------------
-    public Task findBySexo(String sexo) {
+    public Aluno findBySexo(String sexo) {
         String query = "SELECT * FROM dados_pessoais WHERE sexo = ?";
 
         return jdbcTemplate.queryForObject(query, new Object[]{sexo}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         resultSet.getLong("id"),
                         resultSet.getString("nome"),
                         resultSet.getString("idade"),
@@ -119,11 +118,11 @@ public class TaskRepositoryImpl implements TaskRepository {
         );
     }
     //  Capturando valores pelo Email ----------------------------------------------------------------------------------
-    public Task findByEmail(String email) {
+    public Aluno findByEmail(String email) {
         String query = "SELECT * FROM dados_pessoais WHERE email = ?";
 
         return jdbcTemplate.queryForObject(query, new Object[]{email}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         resultSet.getLong("id"),
                         resultSet.getString("nome"),
                         resultSet.getString("idade"),
@@ -134,11 +133,11 @@ public class TaskRepositoryImpl implements TaskRepository {
         );
     }
     //  Capturando valores pela Nacionalidade --------------------------------------------------------------------------
-    public Task findByNacionalidade(String nacionalidade) {
+    public Aluno findByNacionalidade(String nacionalidade) {
         String query = "SELECT * FROM dados_pessoais WHERE nacionalidade = ?";
 
         return jdbcTemplate.queryForObject(query, new Object[]{nacionalidade}, (resultSet, rowNum) ->
-                new Task(
+                new Aluno(
                         resultSet.getLong("id"),
                         resultSet.getString("nome"),
                         resultSet.getString("idade"),
@@ -158,21 +157,21 @@ public class TaskRepositoryImpl implements TaskRepository {
     // Inserindo e Atualizando dados  ----------------------------------------------------------------------------------
 
     @Override
-    public Task save(Task task) {
-        if (task.getId() != null) {
+    public Aluno save(Aluno aluno) {
+        if (aluno.getId() != null) {
             String insertQuery = "INSERT INTO dados_pessoais (id, nome, idade, sexo, email, nacionalidade) VALUES (?, ?, ?, ?, ?, ?)";
-            jdbcTemplate.update(insertQuery, task.getId(), task.getNome(), task.getIdade(), task.getSexo(), task.getEmail(), task.getNacionalidade());
+            jdbcTemplate.update(insertQuery, aluno.getId(), aluno.getNome(), aluno.getIdade(), aluno.getSexo(), aluno.getEmail(), aluno.getNacionalidade());
         }
-        return task;
+        return aluno;
     }
 
     @Override
-    public Task update(Task task) {
+    public Aluno update(Aluno aluno) {
         {
             String updateQuery = "UPDATE dados_pessoais SET nome = ?, idade = ?,sexo = ?,email = ?,nacionalidade = ? WHERE id = ?";
-            jdbcTemplate.update(updateQuery, task.getNome(), task.getIdade(), task.getSexo(), task.getEmail(), task.getNacionalidade(), task.getId());
+            jdbcTemplate.update(updateQuery, aluno.getNome(), aluno.getIdade(), aluno.getSexo(), aluno.getEmail(), aluno.getNacionalidade(), aluno.getId());
         }
-        return task; // Retornando a task após inserção ou atualização
+        return aluno; // Retornando a aluno após inserção ou atualização
     }
 
 

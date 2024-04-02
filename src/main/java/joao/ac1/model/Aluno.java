@@ -1,7 +1,7 @@
 package joao.ac1.model;
 
 
-public class Task {
+public class Aluno {
     private Long id;
     private String nome;
     private String idade;
@@ -9,7 +9,7 @@ public class Task {
     private String email;
     private String nacionalidade;
 
-    public Task(Long id, String nome, String idade, String sexo, String email, String nacionalidade) {
+    public Aluno(Long id, String nome, String idade, String sexo, String email, String nacionalidade) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
