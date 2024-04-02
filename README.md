@@ -29,7 +29,10 @@ A estrutura do projeto foi mantida conforme as versões anteriores, com a adiç�
 - Banco de dados PostgreSQL
 - IntelliJ IDEA (ou outra IDE de sua preferência)
 
-## Prints Postman e PostgreSQL
+## Prints PostgreSQL e Postman
 ![Descrição da Imagem 1](imgs/bando_de_dados_aula05.png)
 
-![Descrição da Imagem 2](imgs/postman_aula05_consulta_banco.png)
+![Descrição da Imagem 1](https://github.com/ojoaovf/AC1-Arquitetura-Web/blob/aula05/imgs/get_aula04.png)
+
+
+
