@@ -30,13 +30,13 @@ public class AlunoController {
         return alunoService.createAluno(aluno);
     }
 
+    @PutMapping("/update/{id}")
+    public Aluno update(@PathVariable("id") Long id, @RequestBody Aluno aluno) {
+        return alunoService.update(aluno);
+    }
     @DeleteMapping("/del/{id}")
     public void deleteTask(@PathVariable("id") Long id) {
         alunoService.deleteById(id);
     }
 
-    @PutMapping("/update/{id}")
-    public Aluno update(@PathVariable("id") Long id, @RequestBody Aluno aluno) {
-        return alunoService.update(aluno);
-    }
 }

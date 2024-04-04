@@ -1,13 +1,26 @@
 package joao.ac1.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "aluno")
 public class Aluno {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Estratégia de geração de identificador
     private Long id;
     private String nome;
-    private String idade;
     private String sexo;
+    private String idade;
     private String email;
     private String nacionalidade;
+
+
+
 
     public Aluno(Long id, String nome, String idade, String sexo, String email, String nacionalidade) {
         this.id = id;
